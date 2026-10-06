@@ -1,0 +1,41 @@
+@use "variables" as v;
+@use "sass:map";
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin tab {
+  @media (max-width: v.$breakpoint-tab) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media (max-width: v.$breakpoint-sp) {
+    @content;
+  }
+}
+
+@mixin mq($device) {
+  @media (max-width: map.get(v.$breakpoints, $device)) {
+    @content;
+  }
+}
+
+@mixin button-style(
+  $background: #e60012,
+  $color: #fff
+) {
+  background: $background;
+  color: $color;
+  border: 1px solid $background;
+}

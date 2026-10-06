@@ -1,0 +1,22 @@
+@use "../foundation" as f;
+@use "sass:map";
+
+.button {
+  @include f.flex(space-between, center);
+
+  padding: map.get(f.$spaces, medium);
+  @include f.button-style($color: #333);
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+@include f.mq(tab) {
+  font-size: 16px;
+}
+
+@include f.mq(sp) {
+  width: 100%;
+  font-size: 14px;
+}
+}
